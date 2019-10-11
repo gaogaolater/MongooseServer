@@ -5,19 +5,14 @@
 #include "HttpServer.h"
 #include "mongoose.h"
 
-bool handle_fun1(std::string url, std::string body, mg_connection *c, OnRspCallback rsp_callback)
+std::string handle_fun1(http_message* http_req)
 {
-	// do sth
-	std::cout << "handle fun1" << std::endl;
-	std::cout << "url: " << url << std::endl;
-	std::cout << "body: " << body << std::endl;
-	rsp_callback(c, "{name:'gaofeng'}");
-	return true;
+	return "{code:'api/fun1'}";
 }
 
 int main()
 {
-	std::string port = "7999";
+	std::string port = "7998";
 	auto http_server = std::shared_ptr<HttpServer>(new HttpServer);
 	http_server->Init(port);
 	// add handler

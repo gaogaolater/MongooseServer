@@ -10,8 +10,7 @@
 // 定义http返回callback
 typedef void OnRspCallback(mg_connection *c, std::string);
 // 定义http请求handler
-using ReqHandler = std::function<bool(std::string, std::string, mg_connection *c, OnRspCallback)>;
-
+using ReqHandler = std::function<std::string(http_message *http_message)>;
 
 class HttpServer
 {
@@ -21,6 +20,7 @@ public:
 	void Init(const std::string &port); // 初始化设置
 	bool Start(); // 启动httpserver
 	bool Close(); // 关闭
+	
 	void AddHandler(const std::string &url, ReqHandler req_handler); // 注册事件处理函数
 	void RemoveHandler(const std::string &url); // 移除时间处理函数
 	static std::string s_web_dir; // 网页根目录 

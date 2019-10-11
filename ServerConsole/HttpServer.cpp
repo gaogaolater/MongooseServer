@@ -113,7 +113,8 @@ void HttpServer::HandleHttpEvent(mg_connection *connection, http_message *http_r
 	if (it != s_handler_map.end())
 	{
 		ReqHandler handle_func = it->second;
-		handle_func(url, body, connection, &HttpServer::SendHttpRsp);
+		std::string result = handle_func(http_req);
+		SendHttpRsp(connection, result);
 	}
 
 	// ÆäËûÇëÇó
