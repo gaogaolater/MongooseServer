@@ -1,8 +1,6 @@
 .vscode
-*.zip
-.idea/
 .vs/
-/dist
-/Debug
+Debug
 ServerConsole/Debug/
 ServerConsole/x64/
+x64
