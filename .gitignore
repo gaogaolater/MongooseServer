@@ -1,0 +1,6 @@
+.vscode
+*.zip
+.idea/
+.vs/
+/dist
+/Debug
